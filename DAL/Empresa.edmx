@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="EmpresaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="T_CAT_PUESTO">
+          <Key>
+            <PropertyRef Name="Id_Puesto" />
+          </Key>
+          <Property Name="Id_Puesto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Puesto" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="T_EMPLEADOS">
+          <Key>
+            <PropertyRef Name="Id_NumEmp" />
+          </Key>
+          <Property Name="Id_NumEmp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nombre" Type="varchar" MaxLength="50" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="50" />
+          <Property Name="IDPuesto" Type="int" />
+        </EntityType>
+        <Association Name="FK_T_EMPLEADOS_T_EMPLEADOS">
+          <End Role="T_CAT_PUESTO" Type="Self.T_CAT_PUESTO" Multiplicity="0..1" />
+          <End Role="T_EMPLEADOS" Type="Self.T_EMPLEADOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_CAT_PUESTO">
+              <PropertyRef Name="Id_Puesto" />
+            </Principal>
+            <Dependent Role="T_EMPLEADOS">
+              <PropertyRef Name="IDPuesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EmpresaModelStoreContainer">
+          <EntitySet Name="T_CAT_PUESTO" EntityType="Self.T_CAT_PUESTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="T_EMPLEADOS" EntityType="Self.T_EMPLEADOS" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_T_EMPLEADOS_T_EMPLEADOS" Association="Self.FK_T_EMPLEADOS_T_EMPLEADOS">
+            <End Role="T_CAT_PUESTO" EntitySet="T_CAT_PUESTO" />
+            <End Role="T_EMPLEADOS" EntitySet="T_EMPLEADOS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="EmpresaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="T_CAT_PUESTO">
+          <Key>
+            <PropertyRef Name="Id_Puesto" />
+          </Key>
+          <Property Name="Id_Puesto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Puesto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="T_EMPLEADOS" Relationship="Self.FK_T_EMPLEADOS_T_EMPLEADOS" FromRole="T_CAT_PUESTO" ToRole="T_EMPLEADOS" />
+        </EntityType>
+        <EntityType Name="T_EMPLEADOS">
+          <Key>
+            <PropertyRef Name="Id_NumEmp" />
+          </Key>
+          <Property Name="Id_NumEmp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IDPuesto" Type="Int32" />
+          <NavigationProperty Name="T_CAT_PUESTO" Relationship="Self.FK_T_EMPLEADOS_T_EMPLEADOS" FromRole="T_EMPLEADOS" ToRole="T_CAT_PUESTO" />
+        </EntityType>
+        <Association Name="FK_T_EMPLEADOS_T_EMPLEADOS">
+          <End Role="T_CAT_PUESTO" Type="Self.T_CAT_PUESTO" Multiplicity="0..1" />
+          <End Role="T_EMPLEADOS" Type="Self.T_EMPLEADOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="T_CAT_PUESTO">
+              <PropertyRef Name="Id_Puesto" />
+            </Principal>
+            <Dependent Role="T_EMPLEADOS">
+              <PropertyRef Name="IDPuesto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="EmpresaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="T_CAT_PUESTO" EntityType="Self.T_CAT_PUESTO" />
+          <EntitySet Name="T_EMPLEADOS" EntityType="Self.T_EMPLEADOS" />
+          <AssociationSet Name="FK_T_EMPLEADOS_T_EMPLEADOS" Association="Self.FK_T_EMPLEADOS_T_EMPLEADOS">
+            <End Role="T_CAT_PUESTO" EntitySet="T_CAT_PUESTO" />
+            <End Role="T_EMPLEADOS" EntitySet="T_EMPLEADOS" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="EmpresaModelStoreContainer" CdmEntityContainer="EmpresaEntities">
+          <EntitySetMapping Name="T_CAT_PUESTO">
+            <EntityTypeMapping TypeName="EmpresaModel.T_CAT_PUESTO">
+              <MappingFragment StoreEntitySet="T_CAT_PUESTO">
+                <ScalarProperty Name="Id_Puesto" ColumnName="Id_Puesto" />
+                <ScalarProperty Name="Puesto" ColumnName="Puesto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="T_EMPLEADOS">
+            <EntityTypeMapping TypeName="EmpresaModel.T_EMPLEADOS">
+              <MappingFragment StoreEntitySet="T_EMPLEADOS">
+                <ScalarProperty Name="Id_NumEmp" ColumnName="Id_NumEmp" />
+                <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="IDPuesto" ColumnName="IDPuesto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

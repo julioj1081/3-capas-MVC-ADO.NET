@@ -1,0 +1,6 @@
+C:\Users\julio\source\repos\Empresa\Models\bin\Debug\Models.dll
+C:\Users\julio\source\repos\Empresa\Models\bin\Debug\Models.pdb
+C:\Users\julio\source\repos\Empresa\Models\obj\Debug\Models.csproj.AssemblyReference.cache
+C:\Users\julio\source\repos\Empresa\Models\obj\Debug\Models.csproj.CoreCompileInputs.cache
+C:\Users\julio\source\repos\Empresa\Models\obj\Debug\Models.dll
+C:\Users\julio\source\repos\Empresa\Models\obj\Debug\Models.pdb

@@ -1,0 +1,40 @@
+﻿@model List<Models.Empleados_ET>
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div>
+    <h1>Usuarios</h1>
+    <a class="btn btn-primary" href="~/Home/Agregar">Add</a>
+</div>
+<div class="row">
+    
+    
+    <div class="container">
+
+        <table class="table table-bordered table-hover table-responsive">
+            <tr>
+                <td>Id</td>
+                <td>Nombre</td>
+                <td>Apellidos</td>
+                <td>IdPuesto</td>
+                <td>Operaciones</td>
+            </tr>
+            <tbody>
+                @foreach(var u in Model)
+                {
+                <tr>
+                    <td>@u.Id_NumEmp</td>
+                    <td>@u.Nombre</td>
+                    <td>@u.Apellidos</td>
+                    <td>@u.Id_Puesto</td>
+                    <td>
+                        <a class="btn btn-warning glyphicon glyphicon-edit" href="~/Home/Editar/@u.Id_NumEmp"></a>
+                        <a class="btn btn-danger glyphicon glyphicon-warning-sign" href="~/Home/Eliminar/@u.Id_NumEmp"></a>
+                    </td>
+                </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

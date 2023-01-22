@@ -1,0 +1,11 @@
+C:\Users\julio\source\repos\Empresa\CapaBL\bin\Debug\CapaBL.dll
+C:\Users\julio\source\repos\Empresa\CapaBL\bin\Debug\CapaBL.pdb
+C:\Users\julio\source\repos\Empresa\CapaBL\bin\Debug\CapaDA.dll
+C:\Users\julio\source\repos\Empresa\CapaBL\bin\Debug\Models.dll
+C:\Users\julio\source\repos\Empresa\CapaBL\bin\Debug\CapaDA.pdb
+C:\Users\julio\source\repos\Empresa\CapaBL\bin\Debug\Models.pdb
+C:\Users\julio\source\repos\Empresa\CapaBL\obj\Debug\CapaBL.csproj.AssemblyReference.cache
+C:\Users\julio\source\repos\Empresa\CapaBL\obj\Debug\CapaBL.csproj.CoreCompileInputs.cache
+C:\Users\julio\source\repos\Empresa\CapaBL\obj\Debug\CapaBL.csproj.CopyComplete
+C:\Users\julio\source\repos\Empresa\CapaBL\obj\Debug\CapaBL.dll
+C:\Users\julio\source\repos\Empresa\CapaBL\obj\Debug\CapaBL.pdb

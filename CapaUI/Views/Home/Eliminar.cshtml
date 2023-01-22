@@ -1,0 +1,34 @@
+﻿@model Models.Empleados_ET
+@{
+    ViewBag.Title = "Eliminar";
+    List<Models.Puestos_ET> Puestos = ViewBag.Puestos;
+}
+
+<h2>Eliminar</h2>
+
+<div class="container">
+    @Html.HiddenFor(model => model.Id_NumEmp)
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Nombre)
+        @Html.DisplayFor(model => model.Nombre)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Apellidos)
+        @Html.DisplayFor(model => model.Apellidos)
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Puesto)
+        <select name="Id_Puesto" class="form-control">
+            @foreach (var m in Puestos)
+            {
+                <option value="@m.Id_Puesto">
+                    @m.Puesto
+                </option>
+            }
+        </select>
+    </div>
+    <div class="form-group">
+        <a class="btn btn-danger" onclick="return confirm('¿Estas seguro de eliminar este Usuario?');" ) href="~/Home/Eliminar_Usuario/@Model.Id_NumEmp">Eliminar</a>
+    </div>
+</div>

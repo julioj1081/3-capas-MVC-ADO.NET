@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmpresaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="T_CAT_PUESTO">
+    <Key>
+      <PropertyRef Name="Id_Puesto" />
+    </Key>
+    <Property Name="Id_Puesto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Puesto" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="T_EMPLEADOS" Relationship="Self.FK_T_EMPLEADOS_T_EMPLEADOS" FromRole="T_CAT_PUESTO" ToRole="T_EMPLEADOS" />
+  </EntityType>
+  <EntityType Name="T_EMPLEADOS">
+    <Key>
+      <PropertyRef Name="Id_NumEmp" />
+    </Key>
+    <Property Name="Id_NumEmp" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Apellidos" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="IDPuesto" Type="Int32" />
+    <NavigationProperty Name="T_CAT_PUESTO" Relationship="Self.FK_T_EMPLEADOS_T_EMPLEADOS" FromRole="T_EMPLEADOS" ToRole="T_CAT_PUESTO" />
+  </EntityType>
+  <Association Name="FK_T_EMPLEADOS_T_EMPLEADOS">
+    <End Role="T_CAT_PUESTO" Type="Self.T_CAT_PUESTO" Multiplicity="0..1" />
+    <End Role="T_EMPLEADOS" Type="Self.T_EMPLEADOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_CAT_PUESTO">
+        <PropertyRef Name="Id_Puesto" />
+      </Principal>
+      <Dependent Role="T_EMPLEADOS">
+        <PropertyRef Name="IDPuesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EmpresaEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="T_CAT_PUESTO" EntityType="Self.T_CAT_PUESTO" />
+    <EntitySet Name="T_EMPLEADOS" EntityType="Self.T_EMPLEADOS" />
+    <AssociationSet Name="FK_T_EMPLEADOS_T_EMPLEADOS" Association="Self.FK_T_EMPLEADOS_T_EMPLEADOS">
+      <End Role="T_CAT_PUESTO" EntitySet="T_CAT_PUESTO" />
+      <End Role="T_EMPLEADOS" EntitySet="T_EMPLEADOS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

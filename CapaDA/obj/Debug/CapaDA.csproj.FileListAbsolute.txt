@@ -1,0 +1,9 @@
+C:\Users\julio\source\repos\Empresa\CapaDA\bin\Debug\CapaDA.dll
+C:\Users\julio\source\repos\Empresa\CapaDA\bin\Debug\CapaDA.pdb
+C:\Users\julio\source\repos\Empresa\CapaDA\bin\Debug\Models.dll
+C:\Users\julio\source\repos\Empresa\CapaDA\bin\Debug\Models.pdb
+C:\Users\julio\source\repos\Empresa\CapaDA\obj\Debug\CapaDA.csproj.AssemblyReference.cache
+C:\Users\julio\source\repos\Empresa\CapaDA\obj\Debug\CapaDA.csproj.CoreCompileInputs.cache
+C:\Users\julio\source\repos\Empresa\CapaDA\obj\Debug\CapaDA.csproj.CopyComplete
+C:\Users\julio\source\repos\Empresa\CapaDA\obj\Debug\CapaDA.dll
+C:\Users\julio\source\repos\Empresa\CapaDA\obj\Debug\CapaDA.pdb

@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EmpresaModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="T_CAT_PUESTO">
+    <Key>
+      <PropertyRef Name="Id_Puesto" />
+    </Key>
+    <Property Name="Id_Puesto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Puesto" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="T_EMPLEADOS">
+    <Key>
+      <PropertyRef Name="Id_NumEmp" />
+    </Key>
+    <Property Name="Id_NumEmp" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" />
+    <Property Name="Apellidos" Type="varchar" MaxLength="50" />
+    <Property Name="IDPuesto" Type="int" />
+  </EntityType>
+  <Association Name="FK_T_EMPLEADOS_T_EMPLEADOS">
+    <End Role="T_CAT_PUESTO" Type="Self.T_CAT_PUESTO" Multiplicity="0..1" />
+    <End Role="T_EMPLEADOS" Type="Self.T_EMPLEADOS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="T_CAT_PUESTO">
+        <PropertyRef Name="Id_Puesto" />
+      </Principal>
+      <Dependent Role="T_EMPLEADOS">
+        <PropertyRef Name="IDPuesto" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="EmpresaModelStoreContainer">
+    <EntitySet Name="T_CAT_PUESTO" EntityType="Self.T_CAT_PUESTO" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="T_EMPLEADOS" EntityType="Self.T_EMPLEADOS" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_T_EMPLEADOS_T_EMPLEADOS" Association="Self.FK_T_EMPLEADOS_T_EMPLEADOS">
+      <End Role="T_CAT_PUESTO" EntitySet="T_CAT_PUESTO" />
+      <End Role="T_EMPLEADOS" EntitySet="T_EMPLEADOS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

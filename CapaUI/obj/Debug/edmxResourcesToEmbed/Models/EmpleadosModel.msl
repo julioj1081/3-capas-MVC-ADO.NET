@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="EmpresaModelStoreContainer" CdmEntityContainer="EmpresaEntities">
+    <EntitySetMapping Name="T_CAT_PUESTO">
+      <EntityTypeMapping TypeName="EmpresaModel.T_CAT_PUESTO">
+        <MappingFragment StoreEntitySet="T_CAT_PUESTO">
+          <ScalarProperty Name="Id_Puesto" ColumnName="Id_Puesto" />
+          <ScalarProperty Name="Puesto" ColumnName="Puesto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="T_EMPLEADOS">
+      <EntityTypeMapping TypeName="EmpresaModel.T_EMPLEADOS">
+        <MappingFragment StoreEntitySet="T_EMPLEADOS">
+          <ScalarProperty Name="Id_NumEmp" ColumnName="Id_NumEmp" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="IDPuesto" ColumnName="IDPuesto" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
